@@ -726,12 +726,12 @@ func (h *Handle) RouteListFiltered(family int, filter *Route, filterMask uint64)
 			// Ignore cloned routes
 			continue
 		}
-		if msg.Table != unix.RT_TABLE_MAIN {
-			if filter == nil || filter != nil && filterMask&RT_FILTER_TABLE == 0 {
-				// Ignore non-main tables
-				continue
-			}
-		}
+		// if msg.Table != unix.RT_TABLE_MAIN {
+		// 	if filter == nil || filter != nil && filterMask&RT_FILTER_TABLE == 0 {
+		// 		// Ignore non-main tables
+		// 		continue
+		// 	}
+		// }
 		route, err := deserializeRoute(m)
 		if err != nil {
 			return nil, err
